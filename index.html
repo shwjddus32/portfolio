@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+    />
+    <script src="js/jquery-4.0.0.min.js"></script>
+    <script src="js/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+  </head>
+  <body>
+    <div id="mainBg">
+      <section id="intro01">
+        <div class="txt01">
+          <svg id="Layer_1" data-name="Layer 1" viewBox="0 0 320 90">
+            <path
+              class="cls-1"
+              d="m3.57,47.18c-1.16,1.52-6.12,10.02-.29,7.92,2.64-.95,4.2-4.44,4.99-6.9,2.49-6.54,4.97-13.08,7.46-19.62,2.93-7.71,5.07-16.91,9.19-24.07.21-.37.43-.8.78-1.07.42-.32,1.08-.39,1.44,0,.18.19.25.45.31.71,1.81,7.6-1,16.14-1.75,23.72-.49,4.93-.95,9.87-1.19,14.81-.16,3.26-1.03,8.7.52,11.75.26.51.85.9,1.4.73.3-.09.53-.33.73-.56,3.38-3.8,5.35-9.29,7.34-13.91,2.36-5.48,4.55-11.05,6.67-16.63,2.65-6.97,5.21-13.98,7.65-21.02"
+            />
+            <path
+              class="cls-1"
+              d="m51.1,55.27c-4.21-.71-8.12-2.05-9.49-6.51-2.5-8.13,2.72-16.24,10.28-18.98,6.41-2.33,12.7-.29,13.98,6.97,2.38,13.44-12.6,18.89-14.77,18.53Z"
+            />
+            <path
+              class="cls-1"
+              d="m53.84,55.4c-1.35-.11,12.39,3.03,26.77-21.45"
+            />
+            <path
+              class="cls-1"
+              d="m120.95.5s-21.97,54.67-23.4,56.25-7.14-.69-5.16-5.68c2.04-7.73,13.07,3.5,16.92,4.2s20.88,7.27,28.92-23.09-14.67-28.33-14.76-28.32c-5.48.48-11.48.44-16.3,3.48-2.98,1.88-7.4,8.5-1.1,9.48"
+            />
+            <path
+              class="cls-1"
+              d="m151.31,31.82s-6.84,16.28-7.32,19.25.24,6.08,6.84,5.35,14.19-12.25,14.19-12.25"
+            />
+            <path
+              class="cls-1"
+              d="m181.07,29.19c-4.48.53-14.88,2.15-15.96,13.67s7.56,12.36,15.96,5.88,10.44-19.55,0-19.55Z"
+            />
+            <path
+              class="cls-1"
+              d="m185.54,44.17s-7.19,32.53-18.27,36.37-15.48-6-9.84-13.68,22.25-10.36,27.24-12.83c6-2.96,9.77-8.89,9.77-8.89"
+            />
+            <path
+              class="cls-1"
+              d="m218.13,31.31s-16.66-5.61-22.7,10.58c-6.73,18.06,18.05,9.31,19.72,6.36s8.73-13.83,2.98-16.95Z"
+            />
+            <path
+              class="cls-1"
+              d="m215.89,46.98c-2.74,9.59-5.97,19.07-10.79,27.83-1.22,2.21-2.63,4.49-4.89,5.61-2.61,1.3-5.78.76-8.47-.36-2.68-1.11-5.36-3.1-5.76-5.97-.37-2.63,1.29-5.1,3.09-7.04,3.07-3.29,6.82-5.94,10.96-7.73,4.37-1.89,9.1-2.8,13.54-4.53,5.58-2.17,8.43-5.76,12.16-10.1,3.3-3.85,6.81-7.92,9.46-12.27-1.25,2.39-2.44,4.82-3.57,7.27-1.67,3.61-4.86,8.88-4.48,12.97.16,1.7,1.13,3.39,2.69,4.08,1.36.6,2.94.37,4.34-.1,9.16-3.13,14.61-13.35,19.52-21.12,5.21-8.25,11.11-17.33,13.84-26.79.33-1.14.78-2.47.54-3.67-1.32-6.6-21.36,44.76-13.68,49.56,6.96,4.35,19.57-4.59,23.81-15.21s4.27-9.04,4.27-9.04c0,0-13.3,19.67-2.75,22.41s20.06-17.95,21.11-20.97c-1.9,5.44-4.04,12.74-6.11,18.73-1.82,5.29-3.7,10.58-5.76,15.78-1.86,4.71-3.65,11.39-8.64,13.59-6.22,2.74-15.84-2.19-10.76-9.42,2.96-4.22,6.85-7.77,11.29-10.39,4.9-2.9,9.73-3.56,15.14-4.87,9.76-2.36,15.23-13.14,19.07-21.65"
+            />
+            <line class="cls-1" x1="246.71" y1="30.37" x2="267.95" y2="30.37" />
+            <circle class="cls-1" cx="155.35" cy="21.04" r="2.5" />
+            <circle class="cls-1" cx="240.45" cy="20.8" r="2.26" />
+          </svg>
+        </div>
+        <div class="txt02">
+          <p>스크롤을 내려주세요</p>
+          <div class="bar"></div>
+        </div>
+      </section>
+
+      <section id="intro02">
+        <div class="txtBox">
+          <i class="fa-solid fa-cloud-arrow-down"></i>
+          <p>노정연님의 포트폴리오를 불러오는 중...</p>
+          <h2>NO DIGGITY</h2>
+          <div class="flow"><div class="bar"></div></div>
+          <div class="wrap">
+            <ul class="notice">
+              <li># 의심할 여지 없이</li>
+              <li># 확실한</li>
+              <li># 말해 뭐해?!</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="aboutMe">
+        <ul class="navi">
+          <li class="on"><a href="#aboutMe">About me</a></li>
+          <li><a href="#coding">Coding</a></li>
+          <li><a href="#java">Javascript</a></li>
+          <li><a href="#design">Design</a></li>
+        </ul>
+        <div class="grid">
+          <ul class="left">
+            <li class="face"><img src="img/face.jpg" alt="프로필 사진" /></li>
+            <li class="info">
+              <div>
+                <div class="icon-box phone">
+                  <i class="fa-solid fa-phone"></i>
+                </div>
+                <p>010-6773-2252</p>
+              </div>
+              <div>
+                <div class="icon-box email">
+                  <i class="fa-regular fa-envelope"></i>
+                </div>
+                <p>shwjddus1234@naver.com</p>
+              </div>
+            </li>
+          </ul>
+          <ul class="center">
+            <li>
+              <img src="img/vscode-original.svg" />
+            </li>
+            <li class="app">
+              <div class="line01">
+                <img src="img/vscode-original.svg" />
+                <img src="img/html5-original.svg" />
+                <img src="img/css3-original.svg" />
+                <img src="img/javascript-original.svg" />
+                <img src="img/jquery-original.svg" />
+                <img src="img/gsap.svg" />
+                <img src="img/bootstrap.svg" />
+              </div>
+              <div class="line02">
+                <img src="img/figma.svg" />
+                <img src="img/github-original.svg" />
+                <img src="img/illustrator.png" />
+                <img src="img/photoshop-original.svg" />
+                <img src="img/premiere-pro.png" />
+                <img src="img/after-effects.png" />
+              </div>
+            </li>
+          </ul>
+          <ul class="right">
+            <li>
+              <ul class="card">
+                <li>
+                  <h2>자격증</h2>
+                  <p>certify</p>
+                  <div></div>
+                </li>
+                <li>
+                  <h2>교육</h2>
+                  <p>certify</p>
+                </li>
+                <li>
+                  <h2>경력</h2>
+                  <p>certify</p>
+                </li>
+                <li>
+                  <h2>협업</h2>
+                  <p>certify</p>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="coding">
+        <ul class="navi">
+          <li class="on"><a href="#aboutMe">About me</a></li>
+          <li><a href="#coding">Coding</a></li>
+          <li><a href="#java">Javascript</a></li>
+          <li><a href="#design">Design</a></li>
+        </ul>
+        <div class="slider">
+          <ul class="panel">
+            <li>
+              <div class="left">
+                <p>CloneCoding</p>
+                <h2>복지사회</h2>
+                <div>
+                  <p>사이트</p>
+                  <p>기획서</p>
+                </div>
+              </div>
+              <div class="right">
+                <img src="img/vscode-original.svg" />
+              </div>
+            </li>
+            <li>
+              <div class="left"></div>
+              <div class="right">
+                <img src="img/vscode-original.svg" />
+              </div>
+            </li>
+            <li>
+              <div class="left"></div>
+              <div class="right">
+                <img src="img/vscode-original.svg" />
+              </div>
+            </li>
+            <li>
+              <div class="left"></div>
+              <div class="right">
+                <img src="img/vscode-original.svg" />
+              </div>
+            </li>
+            <li>
+              <div class="left"></div>
+              <div class="right">
+                <img src="img/vscode-original.svg" />
+              </div>
+            </li>
+          </ul>
+          <ul class="light">
+            <li class="lights"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+          <ul class="arr">
+            <li class="prev">
+              <i class="fa-solid fa-arrow-left"></i>
+            </li>
+            <li class="next">
+              <i class="fa-solid fa-arrow-right"></i>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="java">
+        <ul class="navi">
+          <li class="on"><a href="#aboutMe">About me</a></li>
+          <li><a href="#coding">Coding</a></li>
+          <li><a href="#java">Javascript</a></li>
+          <li><a href="#design">Design</a></li>
+        </ul>
+        <div class="grid">
+          <ul class="large">
+            <li class="active"><img src="img/number.PNG" /></li>
+            <li><img src="img/movie.PNG" /></li>
+            <li><img src="img/weather.png" /></li>
+          </ul>
+          <ul class="small">
+            <li><img src="img/number.PNG" /></li>
+            <li><img src="img/movie.PNG" /></li>
+            <li><img src="img/weather.png" /></li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="design">
+        <ul class="navi">
+          <li class="on"><a href="#aboutMe">About me</a></li>
+          <li><a href="#coding">Coding</a></li>
+          <li><a href="#java">Javascript</a></li>
+          <li><a href="#design">Design</a></li>
+        </ul>
+        <div class="grid">
+          <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img src="img/illustrator1.svg" />
+              </div>
+              <div class="swiper-slide">
+                <img src="img/illustrator2.svg" />
+              </div>
+              <div class="swiper-slide">
+                <img src="img/illustrator3.svg" />
+              </div>
+              <div class="swiper-slide">
+                <img src="img/illustrator4.svg" />
+              </div>
+              <div class="swiper-slide">
+                <img src="img/illustrator5.svg" />
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="footer">
+        <ul class="wrap">
+          <li class="top">
+            <h1>AirDrop</h1>
+            <p>‘노정연’이 연락처를 공유하려고 합니다.</p>
+          </li>
+          <li class="middle">
+            <img src="img/face.jpg" />
+            <h2>노정연</h2>
+            <p>2001.07.10</p>
+            <div class="icon">
+              <div>
+                <i class="fa-solid fa-phone"></i><span>010-6773-2252</span>
+              </div>
+              <div>
+                <i class="fa-solid fa-envelope"></i
+                ><span>shwjddus1234@naver.com</span>
+              </div>
+            </div>
+          </li>
+          <li class="bottom">
+            <div>
+              <p>거절</p>
+              <p>수락</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </body>
+</html>

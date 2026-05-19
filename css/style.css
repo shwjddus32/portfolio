@@ -1,0 +1,853 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul {
+  list-style: none;
+}
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* --- mainBg --- */
+#mainBg {
+  width: 100%;
+  height: 100vh;
+  background: url("../img/bg1.jpg") no-repeat center / cover;
+  position: relative;
+}
+#mainBg section {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* --- intro01 --- */
+/* txt01 */
+.cls-1 {
+  fill: transparent;
+  stroke: #fff;
+  stroke-linecap: round;
+  stroke-miterlimit: 4;
+  stroke-width: 5;
+
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+
+  animation: draw 2s forwards;
+  animation-fill-mode: both;
+}
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+#Layer_1 > .cls-1:nth-child(1) {
+  animation-delay: 0s;
+}
+#Layer_1 > .cls-1:nth-child(2) {
+  animation-delay: 0.3s;
+}
+#Layer_1 > .cls-1:nth-child(3) {
+  animation-delay: 0.6s;
+}
+#Layer_1 > .cls-1:nth-child(4) {
+  animation-delay: 0.9s;
+}
+#Layer_1 > .cls-1:nth-child(5) {
+  animation-delay: 1.2s;
+}
+#Layer_1 > .cls-1:nth-child(6) {
+  animation-delay: 1.5s;
+}
+#Layer_1 > .cls-1:nth-child(7) {
+  animation-delay: 1.8s;
+}
+#Layer_1 > .cls-1:nth-child(8) {
+  animation-delay: 2.1s;
+}
+#Layer_1 > .cls-1:nth-child(9) {
+  animation-delay: 2.4s;
+}
+#Layer_1 > .cls-1:nth-child(10) {
+  animation-delay: 2.8s;
+}
+#Layer_1 > .cls-1:nth-child(11) {
+  animation-delay: 3.1s;
+}
+#Layer_1 > .cls-1:nth-child(12) {
+  animation-delay: 3.4s;
+}
+.txt01 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 300px;
+}
+/* txt02 */
+#intro01 .txt02 {
+  position: absolute;
+  bottom: 2%;
+}
+#intro01 .txt02 p {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-bottom: 20px;
+  color: #fff;
+}
+#intro01 .txt02 .bar {
+  height: 4px;
+  width: 200px;
+  background-color: #fff;
+  border-radius: 2px;
+}
+
+/* --- intro02 --- */
+#intro02 .txtBox {
+  width: 100%;
+  max-width: 1200px;
+  height: 50%;
+  background-color: #fff;
+  color: #222;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+}
+#intro02 .txtBox i {
+  font-size: 20px;
+  color: #007bf4;
+}
+#intro02 .txtBox h2 {
+  font-size: 6vw;
+}
+#intro02 .txtBox .flow {
+  width: 80%;
+  height: 5px;
+  border-radius: 20px;
+  background-color: #ccc;
+  position: relative;
+}
+#intro02 .txtBox .bar {
+  width: 0%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #007bf4;
+  border-radius: 20px;
+}
+#intro02 .txtBox .wrap {
+  height: 50px;
+  overflow: hidden;
+}
+#intro02 .txtBox .notice {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  font-size: 1.2rem;
+}
+
+/* --- aboutMe --- */
+/* navi */
+#mainBg .navi {
+  display: flex;
+  gap: 1rem;
+  color: #fff;
+  background-color: #007bf4;
+  border-radius: 50px;
+  padding: 8px;
+  list-style: none;
+  margin-bottom: 50px;
+  position: relative;
+  z-index: 9999;
+}
+#mainBg .navi li {
+  padding: 8px 20px;
+  border-radius: 20px;
+  transition: all 0.3s;
+}
+#mainBg .navi li.on {
+  background-color: #fff;
+  color: #007bf4;
+}
+/* grid */
+#aboutMe .grid {
+  width: 100%;
+  max-width: 1200px;
+  height: 80vh;
+  display: flex;
+  gap: 1.5rem;
+}
+#aboutMe .grid > ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  height: 100%;
+}
+#aboutMe .grid li {
+  background-color: #fff;
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+}
+/* left */
+#aboutMe .grid .left {
+  width: 28%;
+}
+#aboutMe .grid .left .face {
+  flex: 3;
+}
+#aboutMe .grid .left .face img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#aboutMe .grid .left .info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+  padding-left: 1rem;
+}
+#aboutMe .grid .left .info > div {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+#aboutMe .grid .left .info .icon-box {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+#aboutMe .grid .left .info .phone {
+  background-color: #6acd6c;
+}
+#aboutMe .grid .left .info .email {
+  background-color: #007bf4;
+}
+#aboutMe .grid .left .info p {
+  color: #222;
+}
+/* center */
+#aboutMe .grid .center {
+  width: 44%;
+}
+#aboutMe .grid .center li:nth-child(1) {
+  flex: 2.5;
+}
+/* app */
+#aboutMe .grid .center .app {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column; /* line01과 line02를 세로로 정렬 */
+  justify-content: center;
+  gap: 20px; /* 줄과 줄 사이, 아이콘 그룹 간의 정교한 간격 */
+  padding: 24px;
+}
+#aboutMe .grid .center .app .line01,
+#aboutMe .grid .center .app .line02 {
+  display: flex;
+  flex-wrap: wrap; /* 화면이 아주 작아지면 자연스럽게 줄바꿈 */
+  justify-content: space-evenly; /* 아이콘들을 일정한 간격으로 분배 */
+  align-items: center;
+  width: 100%;
+  gap: 12px; /* 아이콘과 아이콘 사이의 최소 간격 */
+}
+#aboutMe .grid .center .app img {
+  width: 55px;
+  height: 55px;
+  border-radius: 12px;
+  animation: float 4s ease-in-out infinite;
+}
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY() rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(3deg); /* 살짝 위로 뜨면서 회전 */
+  }
+}
+#aboutMe .grid .center .app img:nth-child(1) {
+  animation-delay: 0s;
+}
+#aboutMe .grid .center .app img:nth-child(2) {
+  animation-delay: 0.5s;
+}
+#aboutMe .grid .center .app img:nth-child(3) {
+  animation-delay: 1s;
+}
+#aboutMe .grid .center .app img:nth-child(4) {
+  animation-delay: 1.5s;
+}
+#aboutMe .grid .center .app img:nth-child(5) {
+  animation-delay: 2s;
+}
+#aboutMe .grid .center .app img:nth-child(6) {
+  animation-delay: 2.5s;
+}
+#aboutMe .grid .center .app img:nth-child(7) {
+  animation-delay: 3s;
+}
+/* right */
+#aboutMe .grid .right {
+  width: 28%;
+  position: relative;
+}
+#aboutMe .grid .right > li {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+#aboutMe .grid .right .card {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+#aboutMe .grid .right .card li {
+  width: 100%;
+  height: 25%;
+  position: relative;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: hidden;
+  border-radius: 0;
+}
+#aboutMe .grid .right .card li:nth-child(1) {
+  background-color: #111;
+  color: #fff;
+}
+#aboutMe .grid .right .card li:nth-child(2) {
+  background-color: #444;
+  color: #fff;
+}
+#aboutMe .grid .right .card li:nth-child(3) {
+  background-color: #ccc;
+  color: #222;
+}
+#aboutMe .grid .right .card li:nth-child(4) {
+  background-color: #eee;
+  color: #222;
+}
+#aboutMe .grid .right .card li::before {
+  content: "";
+  width: 50px;
+  height: 5px;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 3px;
+  align-self: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* --- coding --- */
+.slider {
+  width: 100%;
+  max-width: 1200px;
+  height: 80vh;
+  position: relative;
+  overflow: hidden;
+}
+.slider .panel {
+  display: flex;
+  width: 500%;
+  height: 100%;
+}
+.slider .panel li {
+  display: flex;
+  width: 20%;
+  height: 100%;
+  gap: 1.5rem;
+}
+.slider .panel li > div {
+  border-radius: 25px;
+}
+/* left */
+.slider .panel li .left {
+  width: 28%;
+  background-color: #007aff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+.slider .panel li .left div {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+.slider .panel li .left div p {
+  background-color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 25px;
+}
+/* right */
+.slider .panel li .right {
+  width: 72%;
+  background-color: #fff;
+}
+.slider .panel li .right img {
+  width: 100%;
+  height: 100%;
+}
+/* light */
+.slider .light {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+.slider .light li {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ccc;
+  cursor: pointer;
+}
+.slider .light li.lights {
+  background-color: #007aff;
+}
+/* 화살표 */
+.slider .arr {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  color: #222;
+  cursor: pointer;
+}
+
+/* --- java --- */
+#java .grid {
+  width: 100%;
+  max-width: 1200px;
+  height: 80vh;
+}
+/* large */
+#java .large {
+  width: 100%;
+  height: 90%;
+  position: relative;
+}
+#java .large li {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: none;
+}
+#java .large li.active {
+  display: block;
+}
+#java .large img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 25px;
+  object-position: top center;
+}
+/* small */
+#java .small {
+  height: 10%;
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+#java .small li {
+  width: calc(100% / 3);
+  height: 100%;
+}
+#java .small img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 25px;
+  object-position: top center;
+}
+
+/* --- design --- */
+#design .grid {
+  width: 100%;
+  max-width: 1200px;
+  height: 80vh;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0 auto;
+  border-radius: 25px;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+#design .mySwiper {
+  width: 100%;
+  height: 100%;
+  padding-top: 40px;
+  padding-bottom: 60px;
+  box-sizing: border-box;
+}
+#design .swiper-slide {
+  width: 38%;
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  background-color: #f5f5f7;
+}
+#design .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#design .swiper-pagination {
+  bottom: 20px !important;
+}
+
+/* --- footer --- */
+#footer .wrap {
+  width: 400px;
+  background-color: #fff;
+  border-radius: 25px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  padding: 2rem 0 0;
+}
+/* middle */
+#footer .middle {
+  background-color: #007bf4;
+  color: #fff;
+  padding: 1rem 0;
+  margin: 2rem 0;
+}
+#footer .middle img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+#footer .middle .icon {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0 1rem;
+  margin-top: 1rem;
+}
+#footer .middle .icon div {
+  width: calc((100% - 1rem) / 2);
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  color: #007bf4;
+  border-radius: 5px;
+  padding: 0.3rem 1rem;
+}
+#footer .middle .icon span {
+  font-size: 0.8rem;
+}
+/* bottom */
+#footer .bottom div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid #e0e0e0;
+  text-align: center;
+}
+#footer .bottom div p {
+  width: 100%;
+  padding: 10px 20px;
+  color: #007bf4;
+}
+#footer .bottom div p:first-child {
+  border-right: 1px solid #e0e0e0;
+}
+
+/* === pc버전 === */
+@media (min-width: 1025px) {
+}
+
+/* ========== tablet버전 ========== */
+@media (max-width: 1024px) and (min-width: 501px) {
+  /* --- intro02 --- */
+  #intro02 .txtBox {
+    width: 90%;
+  }
+
+  /* navi */
+  #mainBg .navi li {
+    padding: 8px 20px;
+  }
+
+  /* --- aboutMe --- */
+  /* grid */
+  #aboutMe .grid {
+    width: 90%;
+    height: 80vh;
+    flex-direction: column;
+    padding-right: 2rem;
+    overflow-y: auto;
+  }
+  #aboutMe .grid li {
+    box-shadow: none;
+  }
+  #aboutMe .grid .left {
+    width: 100%;
+    height: auto;
+  }
+  #aboutMe .grid .left .info {
+    font-size: 2.2vw;
+    flex-direction: row;
+    flex: 0.3;
+  }
+  #aboutMe .grid .center {
+    width: 100%;
+    height: auto;
+  }
+  #aboutMe .grid .center .app {
+    flex: 0.5;
+  }
+  #aboutMe .grid .center .app img {
+    width: 35px;
+    height: 35px;
+  }
+  #aboutMe .grid .right {
+    width: 100%;
+    height: auto;
+  }
+  /* 스크롤바 */
+  #aboutMe .grid::-webkit-scrollbar {
+    width: 10px;
+  }
+  #aboutMe .grid::-webkit-scrollbar-thumb {
+    background: #007bf4;
+    border-radius: 25px;
+  }
+  #aboutMe .grid::-webkit-scrollbar-track {
+    background: #ccc;
+    border-radius: 25px;
+  }
+
+  /* --- coding --- */
+  .slider {
+    width: 90%;
+    height: 80vh;
+  }
+  .slider .panel li {
+    flex-direction: column-reverse;
+    gap: 1rem;
+  }
+  .slider .panel li .left {
+    width: 100%;
+    height: 30%;
+  }
+  .slider .panel li .left div p {
+    padding: 0.5rem 1rem;
+  }
+  .slider .panel li .right {
+    width: 100%;
+    height: 70%;
+  }
+
+  .slider .light {
+    bottom: 220px;
+  }
+  .slider .arr {
+    padding: 0 10px;
+    font-size: 1rem;
+    top: 220px;
+  }
+
+  /* --- java--- */
+  #java .grid {
+    width: 90%;
+    height: 80vh;
+  }
+  #java .large {
+    height: 350px;
+  }
+  #java .small {
+    width: 100%;
+    height: 100px;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    display: block;
+  }
+  #java .small li {
+    width: 100%;
+  }
+  #java .small li:nth-child(2) {
+    margin: 0.5rem 0;
+  }
+
+  /* --- design --- */
+  #design .grid {
+    width: 90%;
+    height: 80vh;
+  }
+  #design .mySwiper {
+    width: 100%;
+    height: 100%;
+  }
+  #design .swiper-slide {
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+  }
+  #design .swiper-slide img {
+    display: block;
+    object-fit: contain;
+  }
+}
+
+/* ========== mobile버전 ========== */
+@media (max-width: 500px) {
+  /* --- intro02 --- */
+  #intro02 .txtBox {
+    width: 90%;
+  }
+
+  /* navi */
+  #mainBg .navi {
+    font-size: 0.8rem;
+  }
+  #mainBg .navi li {
+    padding: 8px 15px;
+  }
+
+  /* --- aboutMe --- */
+  /* grid */
+  #aboutMe .grid {
+    width: 90%;
+    height: 70vh;
+    flex-direction: column;
+    padding-right: 2rem;
+    overflow-y: auto;
+  }
+  #aboutMe .grid li {
+    box-shadow: none;
+  }
+  #aboutMe .grid .left {
+    width: 100%;
+    height: auto;
+  }
+  #aboutMe .grid .center {
+    width: 100%;
+    height: auto;
+  }
+  #aboutMe .grid .center .app {
+    flex: 2;
+  }
+  #aboutMe .grid .right {
+    width: 100%;
+    height: auto;
+  }
+  /* 스크롤바 */
+  #aboutMe .grid::-webkit-scrollbar {
+    width: 10px;
+  }
+  #aboutMe .grid::-webkit-scrollbar-thumb {
+    background: #007bf4;
+    border-radius: 25px;
+  }
+  #aboutMe .grid::-webkit-scrollbar-track {
+    background: #ccc;
+    border-radius: 25px;
+  }
+
+  /* --- coding --- */
+  .slider {
+    width: 90%;
+    height: 70vh;
+  }
+  .slider .panel li {
+    flex-direction: column-reverse;
+    gap: 1rem;
+  }
+  .slider .panel li .left {
+    width: 100%;
+    height: 30%;
+  }
+  .slider .panel li .left div p {
+    padding: 0.5rem 1rem;
+  }
+  .slider .panel li .right {
+    width: 100%;
+    height: 70%;
+  }
+  .slider .light {
+    bottom: 200px;
+  }
+  .slider .arr {
+    padding: 0 10px;
+    font-size: 1rem;
+    top: 200px;
+  }
+
+  /* --- java--- */
+  #java .grid {
+    width: 90%;
+    height: 70vh;
+  }
+  #java .large {
+    height: 250px;
+  }
+  #java .small {
+    width: 100%;
+    height: 100px;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    display: block;
+  }
+  #java .small li {
+    width: 100%;
+  }
+  #java .small li:nth-child(2) {
+    margin: 1rem 0;
+  }
+
+  /* --- design --- */
+  #design .grid {
+    width: 90%;
+    height: 70vh;
+  }
+  #design .swiper-slide {
+    width: 100%;
+  }
+}
