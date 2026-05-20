@@ -1,14 +1,31 @@
 $(function () {
-  // 1. [수정] 구역이 총 6개이므로 가짜 스크롤 공간을 화면의 6배(+=600%)로 넉넉하게 늘려줍니다.
+  //mainBg
   const mainTl = gsap.timeline({
     scrollTrigger: {
+      id: "mainTimeline",
       trigger: "#mainBg",
       start: "top top",
       end: "+=500%",
       scrub: 1.5,
       pin: true,
       snap: 1 / 6,
-      id: "mainTimeline",
+
+      // navi lights
+      onUpdate: (self) => {
+        let currentProgress = self.progress;
+        let currentStep = Math.round(currentProgress * 6);
+        let menuIndex = currentStep - 2;
+
+        if (menuIndex >= 0 && menuIndex <= 3) {
+          $(".navi li").removeClass("on");
+
+          $(".navi").each(function () {
+            $(this).find("li").eq(menuIndex).addClass("on");
+          });
+        } else {
+          $(".navi li").removeClass("on");
+        }
+      },
     },
   });
 
@@ -33,15 +50,18 @@ $(function () {
 
   // intro02
   let count = 0;
-  const step = 3;
+  let step = 3;
   let go = false;
+  let stop;
 
   $(window).on("wheel scroll touchmove", function () {
     if (go) return;
     go = true;
 
+    // notice
     stop = setInterval(function () {
       count++;
+
       $(".notice")
         .stop()
         .animate({ "margin-top": "-50px" }, 500, function () {
@@ -49,13 +69,32 @@ $(function () {
           $(this).css({ "margin-top": "0" });
         });
 
+      // bar
       let progress = (count / step) * 100;
       $("#intro02 .txtBox .bar")
         .stop()
         .animate({ width: progress + "%" }, 500);
 
+      // next page
       if (count >= step) {
         clearInterval(stop);
+
+        setTimeout(function () {
+          let triggerInstance = ScrollTrigger.getById("mainTimeline");
+
+          if (triggerInstance) {
+            let targetPercent = 2 / 6;
+            let targetScrollPos =
+              triggerInstance.start +
+              (triggerInstance.end - triggerInstance.start) * targetPercent;
+
+            gsap.to(window, {
+              duration: 1.5,
+              scrollTo: targetScrollPos,
+              ease: "power2.inOut",
+            });
+          }
+        }, 900);
       }
     }, 2000);
   });
@@ -64,21 +103,17 @@ $(function () {
   $(".navi li").on("click", function (e) {
     e.preventDefault();
 
-    let i = $(this).index(); // 클릭한 메뉴의 순서 (0, 1, 2, 3)
+    let i = $(this).index();
 
-    // 전체 6단계 애니메이션 중 내가 가야 할 지점을 정확한 비율(0 ~ 1 사이)로 계산
-    // About Me(2번째 전환점) -> 2/6, Coding -> 3/6, Java -> 4/6, Design -> 5/6
     let targetPercent = (i + 2) / 6;
 
     let triggerInstance = ScrollTrigger.getById("mainTimeline");
 
     if (triggerInstance) {
-      // 플러그인 충돌 없는 정석 계산법: 전체 가짜 스크롤 범위 내에서 픽셀 위치를 구합니다.
       let targetScrollPos =
         triggerInstance.start +
         (triggerInstance.end - triggerInstance.start) * targetPercent;
 
-      // 브라우저의 진짜 스크롤바 위치를 강제로 밀어줍니다.
       gsap.to(window, {
         duration: 0.6,
         scrollTo: targetScrollPos,
@@ -93,56 +128,135 @@ $(function () {
     });
   });
 
-  //aboutMe
+  // aboutMe
+  //center
+  const TOP_OFFSET = 150;
+
+  const items = [
+    { el: ".drop1", top: TOP_OFFSET },
+    { el: ".drop2", top: TOP_OFFSET + 80 },
+    { el: ".drop3", top: TOP_OFFSET - 100 },
+    { el: ".drop4", top: TOP_OFFSET - 40 },
+    { el: ".drop5", top: TOP_OFFSET + 120 },
+    { el: ".drop6", top: TOP_OFFSET + 180 },
+    { el: ".drop7", top: TOP_OFFSET + 150 },
+  ];
+
+  items.forEach((item, index) => {
+    setTimeout(() => {
+      $(item.el)
+        .animate(
+          {
+            top: item.top,
+            opacity: 1,
+          },
+          700,
+        )
+
+        .animate(
+          {
+            top: item.top - 10,
+          },
+          100,
+        )
+        .animate(
+          {
+            top: item.top,
+          },
+          100,
+          function () {
+            if (item.rotate) {
+              $(this).css("transform", "rotate(0deg)");
+            }
+          },
+        );
+    }, index * 200);
+  });
+
+  //right
   $(function () {
-    $("#aboutMe .card li").on("mouseenter", function () {
-      $(this)
-        .stop()
-        .animate({ height: "150%" }, function () {
-          $(this).find("img").stop().animate({ opacity: "1" });
-        });
+    $("#aboutMe .card > div").on("mouseenter", function () {
+      $(this).stop().animate({ height: "500px" });
     });
 
-    $("#aboutMe .card li").on("mouseleave", function () {
-      $("#aboutMe .card img").stop().animate({ opacity: "0" });
-      $("#aboutMe .card li").stop().animate({ height: "25%" });
+    $("#aboutMe .card > div").on("mouseleave", function () {
+      $("#aboutMe .card > div").stop().animate({ height: "25%" });
     });
   });
 
   // coding
-  let total = $(".panel li").length;
-  let codingIndex = 0;
+  // [주의] 전역 변수 codingi를 꼭 맨 위에 선언해 주셔야 합니다!
+  let codingi = 0;
 
   function slide() {
-    $(".panel")
-      .stop()
-      .animate({ "margin-left": codingIndex * -100 + "%" }, 500);
-
     $(".light li").removeClass("lights");
-    $(".light li").eq(codingIndex).addClass("lights");
+    $(".light li").eq(codingi).addClass("lights");
   }
 
-  $(".next").on("click", function () {
-    if (codingIndex == total - 1) {
-      codingIndex = 0;
-    } else {
-      codingIndex++;
-    }
-    slide();
+  $(function () {
+    // 전체 슬라이드 개수를 자동으로 잽니다.
+    let total = $(".panel li").length;
+
+    $(".next").on("click", function () {
+      $(".panel")
+        .stop()
+        .animate({ "margin-left": "-100%" }, function () {
+          $(".panel li:first-child").appendTo(".panel");
+          $(".panel").css({ "margin-left": "0%" });
+
+          // 💡 [여기에 한 줄 추가] 다음 버튼을 누르면 번호가 1씩 증가합니다.
+          // 만약 마지막 장 번호(total - 1)를 넘어가면 다시 0번으로 리셋합니다.
+          if (codingi == total - 1) {
+            codingi = 0;
+          } else {
+            codingi++;
+          }
+
+          slide();
+        });
+    });
+
+    $(".prev").on("click", function () {
+      $(".panel li:last-child").prependTo(".panel");
+      $(".panel").css({ "margin-left": "-100%" });
+
+      if (codingi == 0) {
+        codingi = total - 1;
+      } else {
+        codingi--;
+      }
+
+      slide();
+
+      $(".panel").stop().animate({ "margin-left": "0%" });
+    });
+
+    $(".light li").on("click", function () {
+      codingi = $(this).index();
+
+      let currentIdx = $(".panel li:first-child").index();
+      while (codingi !== $(".panel li:first-child").index()) {
+        $(".panel li:first-child").appendTo(".panel");
+      }
+
+      $(".panel").stop().animate({ "margin-left": "-100%" });
+
+      slide();
+    });
   });
 
-  $(".prev").on("click", function () {
-    if (codingIndex == 0) {
-      codingIndex = total - 1;
-    } else {
-      codingIndex--;
-    }
-    slide();
-  });
+  // slider
+  $(window).on("scroll", function () {
+    let triggerInstance = ScrollTrigger.getById("mainTimeline");
 
-  $(".light li").on("click", function () {
-    codingIndex = $(this).index();
-    slide();
+    if (triggerInstance) {
+      let currentProgress = triggerInstance.progress;
+      if (currentProgress >= 0.46 && currentProgress < 0.56) {
+        $(".folio").addClass("active");
+      } else {
+        $(".folio").removeClass("active");
+      }
+    }
   });
 
   // java

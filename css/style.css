@@ -174,14 +174,12 @@ body {
   background-color: #007bf4;
   border-radius: 50px;
   padding: 8px;
-  list-style: none;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
   position: relative;
-  z-index: 9999;
 }
 #mainBg .navi li {
   padding: 8px 20px;
-  border-radius: 20px;
+  border-radius: 25px;
   transition: all 0.3s;
 }
 #mainBg .navi li.on {
@@ -202,8 +200,7 @@ body {
   gap: 1.5rem;
   height: 100%;
 }
-#aboutMe .grid li {
-  background-color: #fff;
+#aboutMe .grid > ul > li {
   border-radius: 25px;
   overflow: hidden;
   box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
@@ -212,118 +209,175 @@ body {
 #aboutMe .grid .left {
   width: 28%;
 }
+#aboutMe .grid .left li::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 5px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+/* face */
 #aboutMe .grid .left .face {
-  flex: 3;
+  flex: 2.5;
+  position: relative;
+  background: rgba(255, 255, 255, 0.5);
 }
 #aboutMe .grid .left .face img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+/* info */
 #aboutMe .grid .left .info {
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 1.5rem;
-  padding-left: 1rem;
+  padding: 18px 16px 12px 16px;
+  position: relative;
+  background: rgba(255, 255, 255, 0.5);
 }
 #aboutMe .grid .left .info > div {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 10px;
+  padding: 14px 4px;
+  position: relative;
+}
+#aboutMe .grid .left .info > div::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 5px;
+  right: 5px;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.06);
+}
+#aboutMe .grid .left .info > div:last-child::after {
+  display: none;
 }
 #aboutMe .grid .left .info .icon-box {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  border-radius: 9px;
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+#aboutMe .grid .left .info .icon-box.profile {
+  background: linear-gradient(135deg, #ffb347, #fa9a2c);
   color: #fff;
-  font-size: 1.2rem;
-  flex-shrink: 0;
 }
-#aboutMe .grid .left .info .phone {
-  background-color: #6acd6c;
+#aboutMe .grid .left .info .icon-box.phone {
+  background: linear-gradient(135deg, #5de174, #34c759);
+  color: #fff;
 }
-#aboutMe .grid .left .info .email {
-  background-color: #007bf4;
-}
-#aboutMe .grid .left .info p {
-  color: #222;
+#aboutMe .grid .left .info .icon-box.email {
+  background: linear-gradient(135deg, #4da4ff, #007bf4);
+  color: #fff;
 }
 /* center */
 #aboutMe .grid .center {
   width: 44%;
 }
-#aboutMe .grid .center li:nth-child(1) {
-  flex: 2.5;
+/* tag */
+#aboutMe .grid .center .tag {
+  flex: 3;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.5);
+}
+#aboutMe .grid .center .card {
+  position: absolute;
+  padding: 14px 26px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-size: 22px;
+  font-weight: bold;
+  color: #222;
+}
+#aboutMe .grid .center .drop {
+  top: -250px;
+  opacity: 0;
+}
+.drop1 {
+  left: 180px;
+  background: linear-gradient(135deg, #e0f2fe, #bae6fd);
+  transform: rotate(-12deg);
+}
+.drop2 {
+  left: 165px;
+  background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+  transform: rotate(10deg);
+}
+.drop3 {
+  left: 20px;
+  background: linear-gradient(135deg, #f3e8ff, #e9d5ff);
+  transform: rotate(-4deg);
+}
+.drop4 {
+  left: 50px;
+  background: linear-gradient(135deg, #fce7f3, #fbcfe8);
+  transform: rotate(6deg);
+}
+.drop5 {
+  left: 80px;
+  background: linear-gradient(135deg, #fef9c3, #fef08a);
+  transform: rotate(-8deg);
+}
+.drop6 {
+  left: 110px;
+  background: linear-gradient(135deg, #ecfccb, #d9f99d);
+  transform: rotate(5deg);
+}
+.drop7 {
+  right: 20px;
+  background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
+  transform: rotate(-10deg);
 }
 /* app */
 #aboutMe .grid .center .app {
-  flex: 1;
   width: 100%;
+  height: auto;
   display: flex;
-  flex-direction: column; /* line01과 line02를 세로로 정렬 */
   justify-content: center;
-  gap: 20px; /* 줄과 줄 사이, 아이콘 그룹 간의 정교한 간격 */
-  padding: 24px;
-}
-#aboutMe .grid .center .app .line01,
-#aboutMe .grid .center .app .line02 {
-  display: flex;
-  flex-wrap: wrap; /* 화면이 아주 작아지면 자연스럽게 줄바꿈 */
-  justify-content: space-evenly; /* 아이콘들을 일정한 간격으로 분배 */
-  align-items: center;
-  width: 100%;
-  gap: 12px; /* 아이콘과 아이콘 사이의 최소 간격 */
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.5);
 }
 #aboutMe .grid .center .app img {
   width: 55px;
   height: 55px;
   border-radius: 12px;
   animation: float 4s ease-in-out infinite;
+  opacity: 0.7;
+}
+#aboutMe .grid .center .app img:hover {
+  opacity: 1;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 @keyframes float {
   0%,
   100% {
-    transform: translateY() rotate(0deg);
+    transform: translateY(5px) rotate(0deg);
   }
   50% {
-    transform: translateY(-10px) rotate(3deg); /* 살짝 위로 뜨면서 회전 */
+    transform: translateY(-5px) rotate(2deg);
   }
-}
-#aboutMe .grid .center .app img:nth-child(1) {
-  animation-delay: 0s;
-}
-#aboutMe .grid .center .app img:nth-child(2) {
-  animation-delay: 0.5s;
-}
-#aboutMe .grid .center .app img:nth-child(3) {
-  animation-delay: 1s;
-}
-#aboutMe .grid .center .app img:nth-child(4) {
-  animation-delay: 1.5s;
-}
-#aboutMe .grid .center .app img:nth-child(5) {
-  animation-delay: 2s;
-}
-#aboutMe .grid .center .app img:nth-child(6) {
-  animation-delay: 2.5s;
-}
-#aboutMe .grid .center .app img:nth-child(7) {
-  animation-delay: 3s;
 }
 /* right */
 #aboutMe .grid .right {
   width: 28%;
-  position: relative;
 }
 #aboutMe .grid .right > li {
   width: 100%;
   height: 100%;
-  position: relative;
 }
 #aboutMe .grid .right .card {
   width: 100%;
@@ -331,42 +385,60 @@ body {
   display: flex;
   flex-direction: column;
 }
-#aboutMe .grid .right .card li {
+#aboutMe .grid .right .card > div {
   width: 100%;
   height: 25%;
   position: relative;
-  padding: 25px;
   display: flex;
   flex-direction: column;
   gap: 10px;
   overflow: hidden;
-  border-radius: 0;
+  padding-top: 2rem;
 }
-#aboutMe .grid .right .card li:nth-child(1) {
-  background-color: #111;
-  color: #fff;
-}
-#aboutMe .grid .right .card li:nth-child(2) {
-  background-color: #444;
-  color: #fff;
-}
-#aboutMe .grid .right .card li:nth-child(3) {
-  background-color: #ccc;
-  color: #222;
-}
-#aboutMe .grid .right .card li:nth-child(4) {
-  background-color: #eee;
-  color: #222;
-}
-#aboutMe .grid .right .card li::before {
+#aboutMe .grid .right .card > div::before {
   content: "";
   width: 50px;
   height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+#aboutMe .grid .right .card .cer {
+  background-color: rgba(17, 17, 17, 0.75);
+  color: #fff;
+}
+#aboutMe .grid .right .card .edu {
+  background-color: rgba(68, 68, 68, 0.7);
+  color: #fff;
+}
+#aboutMe .grid .right .card .wor {
   background-color: rgba(255, 255, 255, 0.4);
-  border-radius: 3px;
-  align-self: center;
-  position: relative;
-  z-index: 2;
+  color: #222;
+}
+#aboutMe .grid .right .card .exp {
+  background-color: rgba(255, 255, 255, 0.7);
+  color: #222;
+}
+#aboutMe .grid .right .card ul {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  opacity: 0;
+  padding: 0.5rem;
+}
+#aboutMe .grid .right .card ul li {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  font-size: 14px;
+}
+#aboutMe .grid .right .card > div:hover ul {
+  opacity: 1;
 }
 
 /* --- coding --- */
@@ -394,7 +466,7 @@ body {
 /* left */
 .slider .panel li .left {
   width: 28%;
-  background-color: #007aff;
+  background: rgba(255, 255, 255, 0.5);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -405,7 +477,7 @@ body {
   justify-content: center;
   gap: 1rem;
 }
-.slider .panel li .left div p {
+.slider .panel li .left div a {
   background-color: #fff;
   padding: 1rem 2rem;
   border-radius: 25px;
@@ -413,12 +485,33 @@ body {
 /* right */
 .slider .panel li .right {
   width: 72%;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.7);
+  position: relative;
 }
 .slider .panel li .right img {
-  width: 100%;
-  height: 100%;
+  display: block;
+  width: 79%;
+  height: 69%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
+.folio {
+  width: 73%;
+  height: 46.5%;
+  position: absolute;
+  left: 50%;
+  top: 19%;
+  transform: translateX(-50%);
+  transition: background-position 10s ease-in-out;
+  background: url(../img/social.png) no-repeat center top / cover;
+}
+
+.folio.active {
+  background-position: center bottom;
+}
+
 /* light */
 .slider .light {
   position: absolute;
@@ -461,8 +554,9 @@ body {
 /* large */
 #java .large {
   width: 100%;
-  height: 90%;
+  height: 88%;
   position: relative;
+  perspective: 1200px;
 }
 #java .large li {
   width: 100%;
@@ -470,35 +564,126 @@ body {
   position: absolute;
   left: 0;
   top: 0;
-  display: none;
+  opacity: 0;
+  transform: scale(0.9);
+  filter: blur(12px);
+  transition:
+    opacity 0.8s cubic-bezier(0.34, 1.56, 0.64, 1),
+    transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1),
+    filter 0.6s ease;
 }
 #java .large li.active {
-  display: block;
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0px);
 }
 #java .large img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 25px;
   object-position: top center;
+  border-radius: 25px;
 }
 /* small */
 #java .small {
-  height: 10%;
+  height: 12%;
   display: flex;
   gap: 1rem;
   margin-top: 0.5rem;
 }
 #java .small li {
-  width: calc(100% / 3);
+  width: calc((100% - 2rem) / 3);
   height: 100%;
+  cursor: pointer;
+  position: relative;
+  border-radius: 25px;
+  overflow: hidden;
+  transition:
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s;
+}
+#java .small li:active {
+  transform: translateY(-2px) scale(0.96);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+  transition: transform 0.1s ease;
 }
 #java .small img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 25px;
-  object-position: top center;
+  filter: brightness(0.6) contrast(1.1) grayscale(30%); /* 🔥 평소엔 흑백톤을 살짝 섞어 톤다운 */
+  transition:
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.5s;
+}
+#java .small li:hover img {
+  transform: scale(1.08);
+  filter: brightness(0.85) contrast(1.2) grayscale(0%); /* 🔥 호버 시 본래의 선명한 컬러가 살아남 */
+}
+#java .small p {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 1.25rem;
+  box-sizing: border-box;
+
+  /* 칙칙한 단색 검정이 아닌, 대각선 아래에서 신비로운 사이버 인디고 빛이 은은하게 올라오는 그라데이션 */
+  background: linear-gradient(
+    135deg,
+    rgba(11, 15, 25, 0.1) 0%,
+    rgba(21, 16, 43, 0.6) 60%,
+    /* 보랏빛 도는 미드나잇 컬러 */ rgba(49, 46, 129, 0.85) 100%
+      /* 네온 인디고 스팟 */
+  );
+
+  color: #e2e8f0; /* 살짝 톤다운된 차분한 흰색 */
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  z-index: 3;
+  transition: color 0.3s ease;
+}
+
+#java .small p .arrow {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.5;
+  transform: translateZ(20px);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); /* 트랜지션 확장 */
+}
+
+#java .small p .arrow::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-top: 2px solid #fff;
+  border-right: 2px solid #fff;
+  transform: rotate(0deg);
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease;
+}
+#java .small li:hover p .arrow {
+  opacity: 1;
+  background: #007bf4;
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.5);
+}
+#java .small li:hover p .arrow::before {
+  transform: rotate(45deg);
 }
 
 /* --- design --- */
@@ -826,7 +1011,7 @@ body {
     height: 70vh;
   }
   #java .large {
-    height: 250px;
+    height: 0px;
   }
   #java .small {
     width: 100%;
