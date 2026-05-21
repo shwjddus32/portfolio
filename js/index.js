@@ -134,12 +134,15 @@ $(function () {
 
   const items = [
     { el: ".drop1", top: TOP_OFFSET },
-    { el: ".drop2", top: TOP_OFFSET + 80 },
-    { el: ".drop3", top: TOP_OFFSET - 100 },
-    { el: ".drop4", top: TOP_OFFSET - 40 },
+    { el: ".drop2", top: TOP_OFFSET + 100 },
+    { el: ".drop3", top: TOP_OFFSET - 80 },
+    { el: ".drop4", top: TOP_OFFSET - 20 },
     { el: ".drop5", top: TOP_OFFSET + 120 },
-    { el: ".drop6", top: TOP_OFFSET + 180 },
-    { el: ".drop7", top: TOP_OFFSET + 150 },
+    { el: ".drop6", top: TOP_OFFSET + 250 },
+    { el: ".drop7", top: TOP_OFFSET + 160 },
+    { el: ".drop8", top: TOP_OFFSET + 280 },
+    { el: ".drop9", top: TOP_OFFSET + 80 },
+    { el: ".drop10", top: TOP_OFFSET + 300 },
   ];
 
   items.forEach((item, index) => {
