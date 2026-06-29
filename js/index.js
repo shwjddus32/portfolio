@@ -8,13 +8,13 @@ $(function () {
       end: "+=1000%",
       scrub: 1.5,
       pin: true,
-      snap: 1 / 6,
+      snap: 1 / 5,
 
       // navi lights
       onUpdate: (self) => {
         let currentProgress = self.progress;
-        let currentStep = Math.round(currentProgress * 6);
-        let menuIndex = currentStep - 2;
+        let currentStep = Math.round(currentProgress * 5);
+        let menuIndex = currentStep - 1;
 
         $(".navi li").removeClass("on");
 
@@ -45,6 +45,10 @@ $(function () {
 
     .to("#design", { yPercent: -100 })
     .from("#footer", { yPercent: 100 }, "<");
+
+  $(window).on("load", function () {
+    ScrollTrigger.refresh();
+  });
 
   // intro02
   let count = 0;
