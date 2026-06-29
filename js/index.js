@@ -5,7 +5,7 @@ $(function () {
       id: "mainTimeline",
       trigger: "#mainBg",
       start: "top top",
-      end: "+=500%",
+      end: "+=1000%",
       scrub: 1.5,
       pin: true,
       snap: 1 / 6,
@@ -50,51 +50,26 @@ $(function () {
 
   // intro02
   let count = 0;
-  let step = 3;
-  let go = false;
   let stop;
 
   $(window).on("wheel scroll touchmove", function () {
-    if (go) return;
-    go = true;
+    if (stop) return;
 
-    // notice
     stop = setInterval(function () {
       count++;
 
       $(".notice")
         .stop()
-        .animate({ "margin-top": "-50px" }, 500, function () {
+        .animate({ "margin-top": "-30px" }, function () {
           $(this).append($(".notice li:first-child"));
           $(this).css({ "margin-top": "0" });
         });
 
-      // bar
-      let progress = (count / step) * 100;
-      $("#intro02 .txtBox .bar")
-        .stop()
-        .animate({ width: progress + "%" }, 500);
+      let barWidth = Math.min(count * 33.3, 100) + "%";
+      $("#intro02 .bar").stop().animate({ width: barWidth }, 500);
 
-      // next page
-      if (count >= step) {
+      if (count >= 3) {
         clearInterval(stop);
-
-        setTimeout(function () {
-          let triggerInstance = ScrollTrigger.getById("mainTimeline");
-
-          if (triggerInstance) {
-            let targetPercent = 2 / 6;
-            let targetScrollPos =
-              triggerInstance.start +
-              (triggerInstance.end - triggerInstance.start) * targetPercent;
-
-            gsap.to(window, {
-              duration: 1.5,
-              scrollTo: targetScrollPos,
-              ease: "power2.inOut",
-            });
-          }
-        }, 900);
       }
     }, 2000);
   });
@@ -121,74 +96,13 @@ $(function () {
       });
     }
 
-    // 메뉴 불 켜기 (모든 navi 동기화)
     $(".navi li").removeClass("on");
     $(".navi").each(function () {
       $(this).find("li").eq(i).addClass("on");
     });
   });
 
-  // aboutMe
-  //center
-  const TOP_OFFSET = 150;
-
-  const items = [
-    { el: ".drop1", top: TOP_OFFSET },
-    { el: ".drop2", top: TOP_OFFSET + 100 },
-    { el: ".drop3", top: TOP_OFFSET - 80 },
-    { el: ".drop4", top: TOP_OFFSET - 20 },
-    { el: ".drop5", top: TOP_OFFSET + 120 },
-    { el: ".drop6", top: TOP_OFFSET + 250 },
-    { el: ".drop7", top: TOP_OFFSET + 160 },
-    { el: ".drop8", top: TOP_OFFSET + 280 },
-    { el: ".drop9", top: TOP_OFFSET + 80 },
-    { el: ".drop10", top: TOP_OFFSET + 300 },
-  ];
-
-  items.forEach((item, index) => {
-    setTimeout(() => {
-      $(item.el)
-        .animate(
-          {
-            top: item.top,
-            opacity: 1,
-          },
-          700,
-        )
-
-        .animate(
-          {
-            top: item.top - 10,
-          },
-          100,
-        )
-        .animate(
-          {
-            top: item.top,
-          },
-          100,
-          function () {
-            if (item.rotate) {
-              $(this).css("transform", "rotate(0deg)");
-            }
-          },
-        );
-    }, index * 200);
-  });
-
-  //right
-  $(function () {
-    $("#aboutMe .card > div").on("mouseenter", function () {
-      $(this).stop().animate({ height: "500px" });
-    });
-
-    $("#aboutMe .card > div").on("mouseleave", function () {
-      $("#aboutMe .card > div").stop().animate({ height: "25%" });
-    });
-  });
-
   // coding
-  // [주의] 전역 변수 codingi를 꼭 맨 위에 선언해 주셔야 합니다!
   let codingi = 0;
 
   function slide() {
@@ -197,7 +111,6 @@ $(function () {
   }
 
   $(function () {
-    // 전체 슬라이드 개수를 자동으로 잽니다.
     let total = $(".panel li").length;
 
     $(".next").on("click", function () {
@@ -207,8 +120,6 @@ $(function () {
           $(".panel li:first-child").appendTo(".panel");
           $(".panel").css({ "margin-left": "0%" });
 
-          // 💡 [여기에 한 줄 추가] 다음 버튼을 누르면 번호가 1씩 증가합니다.
-          // 만약 마지막 장 번호(total - 1)를 넘어가면 다시 0번으로 리셋합니다.
           if (codingi == total - 1) {
             codingi = 0;
           } else {
@@ -248,7 +159,7 @@ $(function () {
     });
   });
 
-  // slider
+  // folio
   $(window).on("scroll", function () {
     let triggerInstance = ScrollTrigger.getById("mainTimeline");
 
