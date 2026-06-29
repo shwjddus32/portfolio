@@ -8,7 +8,7 @@ $(function () {
       end: "+=1000%",
       scrub: 1.5,
       pin: true,
-      snap: 1 / 7,
+      snap: 1 / 6,
 
       // navi lights
       onUpdate: (self) => {
@@ -16,12 +16,10 @@ $(function () {
         let currentStep = Math.round(currentProgress * 6);
         let menuIndex = currentStep - 2;
 
-        if (menuIndex >= 0 && menuIndex <= 3) {
-          $(".navi li").removeClass("on");
+        $(".navi li").removeClass("on");
 
-          $(".navi").each(function () {
-            $(this).find("li").eq(menuIndex).addClass("on");
-          });
+        if (menuIndex >= 0 && menuIndex <= 3) {
+          $(".navi li").eq(menuIndex).addClass("on");
         } else {
           $(".navi li").removeClass("on");
         }
