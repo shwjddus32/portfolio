@@ -8,7 +8,7 @@ $(function () {
       end: "+=1000%",
       scrub: 1.5,
       pin: true,
-      snap: 1 / 6,
+      snap: 1 / 7,
 
       // navi lights
       onUpdate: (self) => {
