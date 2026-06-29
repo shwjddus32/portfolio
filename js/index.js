@@ -8,18 +8,20 @@ $(function () {
       end: "+=1000%",
       scrub: 1.5,
       pin: true,
-      snap: 1 / 5,
+      snap: 1 / 6,
 
       // navi lights
       onUpdate: (self) => {
         let currentProgress = self.progress;
-        let currentStep = Math.round(currentProgress * 5);
-        let menuIndex = currentStep - 1;
-
-        $(".navi li").removeClass("on");
+        let currentStep = Math.round(currentProgress * 6);
+        let menuIndex = currentStep - 2;
 
         if (menuIndex >= 0 && menuIndex <= 3) {
-          $(".navi li").eq(menuIndex).addClass("on");
+          $(".navi li").removeClass("on");
+
+          $(".navi").each(function () {
+            $(this).find("li").eq(menuIndex).addClass("on");
+          });
         } else {
           $(".navi li").removeClass("on");
         }
@@ -45,10 +47,6 @@ $(function () {
 
     .to("#design", { yPercent: -100 })
     .from("#footer", { yPercent: 100 }, "<");
-
-  $(window).on("load", function () {
-    ScrollTrigger.refresh();
-  });
 
   // intro02
   let count = 0;
