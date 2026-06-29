@@ -788,6 +788,10 @@ body {
 }
 
 /* --- footer --- */
+#footer {
+  height: 100vh !important;
+  overflow: hidden;
+}
 #footer .grid {
   width: 100%;
   max-width: 1200px;
